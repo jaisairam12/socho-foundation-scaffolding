@@ -17,11 +17,16 @@ src/
   routes/            file-based routes (each file = one URL)
     __root.tsx       HTML shell, head metadata, error + not-found boundaries
     index.tsx        /            home
-    explore.tsx      /explore     placeholder
-    profile.tsx      /profile     placeholder
-    settings.tsx     /settings    placeholder
+    how-it-works.tsx, find-project.tsx, analyze-idea.tsx, features.tsx,
+    sign-in.tsx, get-started.tsx      placeholders
+    design-system.tsx  /design-system  component reference (noindex)
   components/
-    app-shell.tsx    responsive header / nav / footer wrapper
+    app-shell.tsx    composes SiteHeader + main + SiteFooter
+    brand/logo.tsx   logo mark + wordmark
+    navigation/      site-header.tsx (desktop nav + mobile sheet), site-footer.tsx
+    motion/          scroll-reveal.tsx
+    project-card.tsx, match-score.tsx, empty-state.tsx
+    ui/              shadcn primitives (button, badge, card, input, select, dialog, sonner…)
     page-placeholder.tsx  standard "not built yet" page body
     loading-state.tsx     shared pending UI
     error-state.tsx       shared error UI
@@ -43,8 +48,8 @@ docs/                project documentation (see docs/README.md)
 `AppShell` (`src/components/app-shell.tsx`) wraps every route via `__root.tsx`:
 
 - Sticky header with wordmark and primary navigation.
-- Desktop: horizontal nav. Mobile (< 768px): bottom tab bar.
-- Footer with phase label.
+- Desktop (≥1024px): horizontal nav + Sign In / Get Started. Below: sheet menu.
+- Footer with link columns and phase label.
 - `main` is the single landmark for page content.
 
 ## Loading and error handling
