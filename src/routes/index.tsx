@@ -1,24 +1,44 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "SOCHOYHAPE — Home" },
+      { name: "description", content: "SOCHOYHAPE foundation: app shell and structure for the first phase." },
+      { property: "og:title", content: "SOCHOYHAPE — Home" },
+      { property: "og:description", content: "SOCHOYHAPE foundation: app shell and structure for the first phase." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <section className="flex flex-col gap-6">
+      <span className="w-fit rounded-full border border-border bg-card px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        Phase 1 — Foundation
+      </span>
+      <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">SOCHOYHAPE</h1>
+      <p className="max-w-prose text-lg text-muted-foreground">
+        The app shell, navigation, loading and error handling are in place. Features arrive in later
+        phases — nothing here is simulated.
+      </p>
+      <div className="grid gap-3 sm:grid-cols-3">
+        {[
+          { to: "/explore", label: "Explore" },
+          { to: "/profile", label: "Profile" },
+          { to: "/settings", label: "Settings" },
+        ].map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className="rounded-xl border border-border bg-card p-5 transition-colors hover:bg-accent"
+          >
+            <span className="font-medium">{label}</span>
+            <span className="mt-1 block text-sm text-muted-foreground">Placeholder route</span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
