@@ -1,57 +1,37 @@
-# Design System
+# Design System — SochoYhaPe
 
-Live reference: `/design-system` (renders every component with sample props; `noindex`).
-Tokens: `src/styles.css`. Components: `src/components/`.
+## Visual Philosophy
 
-## Direction
-Premium, Apple-inspired restraint with an engineering/university tone and a subtle futuristic edge.
-Black, white and one electric blue. Gradients only as hairline accents (project card top edge).
+SochoYhaPe uses a **Premium Apple-Inspired Dark Minimalist Design** tailored for modern software and hardware engineering students.
 
-## Colour tokens (oklch, light / dark)
-| Token | Use |
-| --- | --- |
-| `background` / `foreground` | white / near-black ink (inverted in dark) |
-| `surface` | footer and quiet section backgrounds |
-| `primary` | black buttons / white in dark |
-| `electric`, `electric-soft` | the single accent: active nav underline, links, logo core, badges |
-| `success`, `warning`, `destructive` | status badges and states |
-| `border`, `input`, `ring` | hairlines; focus ring is electric |
-Shadows: `shadow-soft`, `shadow-lift` (hover), `shadow-glow` (electric button hover).
+---
+
+## Color Palette & Tokens
+
+The color architecture relies on CSS Custom Properties (`src/styles/app.css`):
+
+| Token Name | Hex Code / HSL | Semantic Usage |
+| :--- | :--- | :--- |
+| `--background` | `hsl(222 47% 4%)` / `#06090E` | Main application backdrop |
+| `--card` | `hsl(222 47% 7%)` / `#0B0F19` | Surface background for cards & panels |
+| `--popover` | `hsl(222 47% 7%)` / `#0B0F19` | Dropdowns and floating modals |
+| `--primary` | `hsl(217 91% 60%)` / `#3B82F6` | Primary action buttons, badges, highlights |
+| `--accent` | `hsl(187 92% 53%)` / `#06B6D4` | AI badge indicators, live status glows |
+| `--foreground` | `hsl(210 40% 98%)` / `#F8FAFC` | Primary text headings |
+| `--muted-foreground` | `hsl(215 20.2% 65.1%)` / `#94A3B8` | Body copy and secondary text |
+| `--border` | `hsl(217 33% 14%)` / `#1E293B` | Subtle card dividers and inputs |
+
+---
 
 ## Typography
-- Display / headings: **Manrope** 500–800, `-0.02em` tracking, `text-wrap: balance`
-- Body: **IBM Plex Sans** 400–600
-- Mono: **IBM Plex Mono** (tags, IDs)
-Loaded via `<link>` in `__root.tsx`; exposed as `font-display`, `font-sans`, `font-mono`.
 
-## Logo
-`src/components/brand/logo.tsx` — "idea node": electric core with three circuit traces to satellite nodes.
-Abstract by design; never a robot head or face. `LogoMark` (icon) and `Logo` (mark + wordmark link).
+- **Headings & Primary UI**: Inter / Manrope sans-serif font stack.
+- **Code, Architecture & Tech Badges**: IBM Plex Mono / Fira Code monospace font stack.
 
-## Components
-| Component | File | Notes |
-| --- | --- | --- |
-| Button | `ui/button.tsx` | pill shape; variants default, electric, outline, secondary, ghost, link, destructive; sizes sm/default/lg/icon; press feedback |
-| Badge | `ui/badge.tsx` | default, electric, secondary, success, warning, destructive, outline |
-| Card | `ui/card.tsx` | shadcn base |
-| ProjectCard | `project-card.tsx` | props-only; hover lift + electric hairline; optional MatchScore |
-| MatchScore | `match-score.tsx` | circular meter 0–100, `role="meter"`; presentational only |
-| Input / Textarea / Select / Label | `ui/*` | shadcn base with new tokens |
-| Progress | `ui/progress.tsx` | shadcn base |
-| Dialog | `ui/dialog.tsx` | shadcn base |
-| Toasts | `ui/sonner.tsx` | `<Toaster>` mounted in `__root.tsx`; call `toast()` from sonner |
-| SiteHeader | `navigation/site-header.tsx` | sticky, blur on scroll, active underline, skip link, mobile Sheet menu |
-| SiteFooter | `navigation/site-footer.tsx` | three columns + phase label |
-| LoadingState / Spinner / ProjectCardSkeleton | `loading-state.tsx` | router default pending = LoadingState |
-| EmptyState | `empty-state.tsx` | icon, title, description, action |
-| ErrorState | `error-state.tsx` | root error boundary; `compact` variant |
+---
 
-## Motion
-- Utilities in `styles.css`: `reveal` (scroll reveal), `press` (active scale), `circuit-grid` (decorative bg), `ease-out-expo`.
-- `ScrollReveal` (`motion/scroll-reveal.tsx`) uses IntersectionObserver; skips under reduced motion.
-- Global `prefers-reduced-motion` rule collapses all animations/transitions.
-- Existing dependency `tw-animate-css` powers the mobile menu item stagger. No new animation packages added.
+## Iconography & Component Primitives
 
-## Navigation
-Desktop (≥1024px): SOCHOYHAPE · Home · How It Works · Find Project · Analyze Idea · Features · Sign In · Get Started.
-Below that: hamburger opens a right-side sheet with the same links and both actions.
+- Icons sourced from `lucide-react`.
+- Glassmorphism effects applied using `backdrop-blur-md` and `bg-slate-900/60`.
+- Micro-interactions: Subtle scale transforms (`hover:scale-[1.02]`), electric blue borders (`hover:border-primary/50`), and glowing pill badges.

@@ -11,12 +11,18 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AnalyzeIdeaRouteImport } from './routes/analyze-idea'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as FindProjectRouteImport } from './routes/find-project'
 import { Route as GetStartedRouteImport } from './routes/get-started'
+import { Route as GithubFinderRouteImport } from './routes/github-finder'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as VivaRouteImport } from './routes/viva'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as ProjectsIdRouteImport } from './routes/projects/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,6 +32,16 @@ const IndexRoute = IndexRouteImport.update({
 const AnalyzeIdeaRoute = AnalyzeIdeaRouteImport.update({
   id: '/analyze-idea',
   path: '/analyze-idea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignSystemRoute = DesignSystemRouteImport.update({
@@ -48,6 +64,11 @@ const GetStartedRoute = GetStartedRouteImport.update({
   path: '/get-started',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GithubFinderRoute = GithubFinderRouteImport.update({
+  id: '/github-finder',
+  path: '/github-finder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
@@ -58,80 +79,137 @@ const SignInRoute = SignInRouteImport.update({
   path: '/sign-in',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VivaRoute = VivaRouteImport.update({
+  id: '/viva',
+  path: '/viva',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIdRoute = ProjectsIdRouteImport.update({
+  id: '/projects/$id',
+  path: '/projects/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
+  '/github-finder': typeof GithubFinderRoute
   '/how-it-works': typeof HowItWorksRoute
   '/sign-in': typeof SignInRoute
+  '/viva': typeof VivaRoute
+  '/projects/$id': typeof ProjectsIdRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
+  '/github-finder': typeof GithubFinderRoute
   '/how-it-works': typeof HowItWorksRoute
   '/sign-in': typeof SignInRoute
+  '/viva': typeof VivaRoute
+  '/projects/$id': typeof ProjectsIdRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
+  '/github-finder': typeof GithubFinderRoute
   '/how-it-works': typeof HowItWorksRoute
   '/sign-in': typeof SignInRoute
+  '/viva': typeof VivaRoute
+  '/projects/$id': typeof ProjectsIdRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/analyze-idea'
+    | '/compare'
+    | '/dashboard'
     | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
+    | '/github-finder'
     | '/how-it-works'
     | '/sign-in'
+    | '/viva'
+    | '/projects/$id'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/analyze-idea'
+    | '/compare'
+    | '/dashboard'
     | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
+    | '/github-finder'
     | '/how-it-works'
     | '/sign-in'
+    | '/viva'
+    | '/projects/$id'
+    | '/projects'
   id:
     | '__root__'
     | '/'
     | '/analyze-idea'
+    | '/compare'
+    | '/dashboard'
     | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
+    | '/github-finder'
     | '/how-it-works'
     | '/sign-in'
+    | '/viva'
+    | '/projects/$id'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnalyzeIdeaRoute: typeof AnalyzeIdeaRoute
+  CompareRoute: typeof CompareRoute
+  DashboardRoute: typeof DashboardRoute
   DesignSystemRoute: typeof DesignSystemRoute
   FeaturesRoute: typeof FeaturesRoute
   FindProjectRoute: typeof FindProjectRoute
   GetStartedRoute: typeof GetStartedRoute
+  GithubFinderRoute: typeof GithubFinderRoute
   HowItWorksRoute: typeof HowItWorksRoute
   SignInRoute: typeof SignInRoute
+  VivaRoute: typeof VivaRoute
+  ProjectsIdRoute: typeof ProjectsIdRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -148,6 +226,20 @@ declare module '@tanstack/react-router' {
       path: '/analyze-idea'
       fullPath: '/analyze-idea'
       preLoaderRoute: typeof AnalyzeIdeaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design-system': {
@@ -178,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GetStartedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/github-finder': {
+      id: '/github-finder'
+      path: '/github-finder'
+      fullPath: '/github-finder'
+      preLoaderRoute: typeof GithubFinderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
@@ -192,18 +291,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignInRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/viva': {
+      id: '/viva'
+      path: '/viva'
+      fullPath: '/viva'
+      preLoaderRoute: typeof VivaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$id': {
+      id: '/projects/$id'
+      path: '/projects/$id'
+      fullPath: '/projects/$id'
+      preLoaderRoute: typeof ProjectsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnalyzeIdeaRoute: AnalyzeIdeaRoute,
+  CompareRoute: CompareRoute,
+  DashboardRoute: DashboardRoute,
   DesignSystemRoute: DesignSystemRoute,
   FeaturesRoute: FeaturesRoute,
   FindProjectRoute: FindProjectRoute,
   GetStartedRoute: GetStartedRoute,
+  GithubFinderRoute: GithubFinderRoute,
   HowItWorksRoute: HowItWorksRoute,
   SignInRoute: SignInRoute,
+  VivaRoute: VivaRoute,
+  ProjectsIdRoute: ProjectsIdRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

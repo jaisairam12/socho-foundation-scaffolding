@@ -8,10 +8,13 @@ import { cn } from "@/lib/utils";
 
 export const PRIMARY_NAV = [
   { to: "/", label: "Home", exact: true },
-  { to: "/how-it-works", label: "How It Works", exact: false },
+  { to: "/projects", label: "Projects", exact: false },
   { to: "/find-project", label: "Find Project", exact: false },
   { to: "/analyze-idea", label: "Analyze Idea", exact: false },
-  { to: "/features", label: "Features", exact: false },
+  { to: "/viva", label: "Viva Prep", exact: false },
+  { to: "/compare", label: "Compare", exact: false },
+  { to: "/github-finder", label: "GitHub Finder", exact: false },
+  { to: "/dashboard", label: "Dashboard", exact: false },
 ] as const;
 
 export function SiteHeader() {
@@ -47,13 +50,13 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <Logo />
 
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">
           {PRIMARY_NAV.map(({ to, label, exact }) => (
             <Link
               key={to}
               to={to}
               activeOptions={{ exact }}
-              className="relative rounded-full px-3.5 py-2 text-[13.5px] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="relative rounded-full px-3 py-1.5 text-[13px] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               activeProps={{ className: "text-foreground" }}
             >
               {({ isActive }) => (
@@ -62,7 +65,7 @@ export function SiteHeader() {
                   <span
                     aria-hidden="true"
                     className={cn(
-                      "absolute inset-x-3.5 -bottom-px h-0.5 origin-left rounded-full bg-electric transition-transform duration-300 ease-out-expo",
+                      "absolute inset-x-3 -bottom-px h-0.5 origin-left rounded-full bg-electric transition-transform duration-300 ease-out-expo",
                       isActive ? "scale-x-100" : "scale-x-0",
                     )}
                   />
@@ -72,18 +75,18 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <Button variant="ghost" size="sm" asChild>
             <Link to="/sign-in">Sign In</Link>
           </Button>
-          <Button size="sm" asChild>
-            <Link to="/get-started">Get Started</Link>
+          <Button size="sm" variant="electric" asChild>
+            <Link to="/dashboard">Dashboard</Link>
           </Button>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
+            <Button variant="ghost" size="icon" className="xl:hidden" aria-label="Open menu">
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>
@@ -98,14 +101,14 @@ export function SiteHeader() {
                 <X className="size-5" />
               </Button>
             </div>
-            <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 px-3 py-4">
+            <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 px-3 py-4 overflow-y-auto">
               {PRIMARY_NAV.map(({ to, label, exact }, i) => (
                 <Link
                   key={to}
                   to={to}
                   activeOptions={{ exact }}
-                  style={{ animationDelay: `${i * 40}ms` }}
-                  className="animate-in fade-in slide-in-from-right-2 fill-mode-both rounded-xl px-4 py-3 font-display text-xl font-semibold tracking-tight text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                  style={{ animationDelay: `${i * 30}ms` }}
+                  className="animate-in fade-in slide-in-from-right-2 fill-mode-both rounded-xl px-4 py-2.5 font-display text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                   activeProps={{ className: "text-foreground bg-accent" }}
                 >
                   {label}
@@ -117,7 +120,7 @@ export function SiteHeader() {
                 <Link to="/sign-in">Sign In</Link>
               </Button>
               <Button variant="electric" size="lg" asChild>
-                <Link to="/get-started">Get Started</Link>
+                <Link to="/dashboard">Dashboard</Link>
               </Button>
             </div>
           </SheetContent>
