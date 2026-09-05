@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AnalyzeIdeaRouteImport } from './routes/analyze-idea'
+import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as FindProjectRouteImport } from './routes/find-project'
 import { Route as GetStartedRouteImport } from './routes/get-started'
@@ -25,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const AnalyzeIdeaRoute = AnalyzeIdeaRouteImport.update({
   id: '/analyze-idea',
   path: '/analyze-idea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignSystemRoute = DesignSystemRouteImport.update({
+  id: '/design-system',
+  path: '/design-system',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesRoute = FeaturesRouteImport.update({
@@ -56,6 +62,7 @@ const SignInRoute = SignInRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
   '/features': typeof FeaturesRoute
   '/find-project': typeof FindProjectRoute
   '/get-started': typeof GetStartedRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/analyze-idea'
+    | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/analyze-idea'
+    | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/analyze-idea'
+    | '/design-system'
     | '/features'
     | '/find-project'
     | '/get-started'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnalyzeIdeaRoute: typeof AnalyzeIdeaRoute
+  DesignSystemRoute: typeof DesignSystemRoute
   FeaturesRoute: typeof FeaturesRoute
   FindProjectRoute: typeof FindProjectRoute
   GetStartedRoute: typeof GetStartedRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/analyze-idea'
       fullPath: '/analyze-idea'
       preLoaderRoute: typeof AnalyzeIdeaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-system': {
+      id: '/design-system'
+      path: '/design-system'
+      fullPath: '/design-system'
+      preLoaderRoute: typeof DesignSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features': {
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnalyzeIdeaRoute: AnalyzeIdeaRoute,
+  DesignSystemRoute: DesignSystemRoute,
   FeaturesRoute: FeaturesRoute,
   FindProjectRoute: FindProjectRoute,
   GetStartedRoute: GetStartedRoute,
