@@ -2,13 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { Compass, Home, Settings, User } from "lucide-react";
 import type { ReactNode } from "react";
 
-const APP_NAME = import.meta.env.VITE_APP_NAME ?? "SOCHOYHAPE";
+const APP_NAME = import.meta.env['VITE_APP_NAME'] ?? "SOCHOYHAPE";
 
 const NAV = [
   { to: "/", label: "Home", icon: Home, exact: true },
-  { to: "/explore", label: "Explore", icon: Compass },
-  { to: "/profile", label: "Profile", icon: User },
-  { to: "/settings", label: "Settings", icon: Settings },
+  { to: "/explore", label: "Explore", icon: Compass, exact: false },
+  { to: "/profile", label: "Profile", icon: User, exact: false },
+  { to: "/settings", label: "Settings", icon: Settings, exact: false },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
