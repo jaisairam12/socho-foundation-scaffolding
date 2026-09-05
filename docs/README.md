@@ -6,6 +6,11 @@ verified work — no planned features are described as if they exist.
 
 | Document | Purpose | Update when |
 | --- | --- | --- |
+| [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md) | What the product is and current state | Scope changes |
+| [PROJECT_REQUIREMENTS.md](./PROJECT_REQUIREMENTS.md) | Requirements per phase | New brief arrives |
+| [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) | Tokens, type, logo, components, motion | Visual system changes |
+| [TODO.md](./TODO.md) | Open tasks | Continuously |
+| [DEVELOPMENT_LOG.md](./DEVELOPMENT_LOG.md) | Session-by-session work log | Every session |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Tech stack, folder layout, routing, data and server boundaries | Structure or stack changes |
 | [DECISIONS.md](./DECISIONS.md) | Numbered design/technical decisions with rationale | A non-obvious choice is made or reversed |
 | [PHASES.md](./PHASES.md) | Phase-by-phase scope and completion status | A phase starts or finishes |
@@ -21,4 +26,4 @@ verified work — no planned features are described as if they exist.
 
 ## Current status
 
-Phase 1 (Foundation) — complete. See [PHASES.md](./PHASES.md).
+Phase 2 (Design system & navigation) — complete. See [PHASES.md](./PHASES.md).

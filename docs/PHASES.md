@@ -3,7 +3,8 @@
 | Phase | Scope | Status |
 | --- | --- | --- |
 | 1 — Foundation | Docs system, `.env.example`, architecture, responsive app shell, loading/error foundation, placeholder routes | Complete (2026-09-05) |
-| 2+ | Not defined yet | Not started |
+| 2 — Design system & navigation | Tokens, typography, logo, reusable components, global nav, motion | Complete (2026-09-05) |
+| 3+ | Not defined yet | Not started |
 
 ## Phase 1 — delivered
 

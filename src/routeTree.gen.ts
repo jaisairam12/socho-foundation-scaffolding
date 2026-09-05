@@ -10,63 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ExploreRouteImport } from './routes/explore'
-import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as AnalyzeIdeaRouteImport } from './routes/analyze-idea'
+import { Route as DesignSystemRouteImport } from './routes/design-system'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as FindProjectRouteImport } from './routes/find-project'
+import { Route as GetStartedRouteImport } from './routes/get-started'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as SignInRouteImport } from './routes/sign-in'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExploreRoute = ExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
+const AnalyzeIdeaRoute = AnalyzeIdeaRouteImport.update({
+  id: '/analyze-idea',
+  path: '/analyze-idea',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const DesignSystemRoute = DesignSystemRouteImport.update({
+  id: '/design-system',
+  path: '/design-system',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindProjectRoute = FindProjectRouteImport.update({
+  id: '/find-project',
+  path: '/find-project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetStartedRoute = GetStartedRouteImport.update({
+  id: '/get-started',
+  path: '/get-started',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/explore': typeof ExploreRoute
-  '/profile': typeof ProfileRoute
-  '/settings': typeof SettingsRoute
+  '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
+  '/features': typeof FeaturesRoute
+  '/find-project': typeof FindProjectRoute
+  '/get-started': typeof GetStartedRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/sign-in': typeof SignInRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/explore': typeof ExploreRoute
-  '/profile': typeof ProfileRoute
-  '/settings': typeof SettingsRoute
+  '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
+  '/features': typeof FeaturesRoute
+  '/find-project': typeof FindProjectRoute
+  '/get-started': typeof GetStartedRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/sign-in': typeof SignInRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/explore': typeof ExploreRoute
-  '/profile': typeof ProfileRoute
-  '/settings': typeof SettingsRoute
+  '/analyze-idea': typeof AnalyzeIdeaRoute
+  '/design-system': typeof DesignSystemRoute
+  '/features': typeof FeaturesRoute
+  '/find-project': typeof FindProjectRoute
+  '/get-started': typeof GetStartedRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/sign-in': typeof SignInRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/explore' | '/profile' | '/settings'
+  fullPaths:
+    | '/'
+    | '/analyze-idea'
+    | '/design-system'
+    | '/features'
+    | '/find-project'
+    | '/get-started'
+    | '/how-it-works'
+    | '/sign-in'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/explore' | '/profile' | '/settings'
-  id: '__root__' | '/' | '/explore' | '/profile' | '/settings'
+  to:
+    | '/'
+    | '/analyze-idea'
+    | '/design-system'
+    | '/features'
+    | '/find-project'
+    | '/get-started'
+    | '/how-it-works'
+    | '/sign-in'
+  id:
+    | '__root__'
+    | '/'
+    | '/analyze-idea'
+    | '/design-system'
+    | '/features'
+    | '/find-project'
+    | '/get-started'
+    | '/how-it-works'
+    | '/sign-in'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ExploreRoute: typeof ExploreRoute
-  ProfileRoute: typeof ProfileRoute
-  SettingsRoute: typeof SettingsRoute
+  AnalyzeIdeaRoute: typeof AnalyzeIdeaRoute
+  DesignSystemRoute: typeof DesignSystemRoute
+  FeaturesRoute: typeof FeaturesRoute
+  FindProjectRoute: typeof FindProjectRoute
+  GetStartedRoute: typeof GetStartedRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  SignInRoute: typeof SignInRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,25 +143,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/explore': {
-      id: '/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof ExploreRouteImport
+    '/analyze-idea': {
+      id: '/analyze-idea'
+      path: '/analyze-idea'
+      fullPath: '/analyze-idea'
+      preLoaderRoute: typeof AnalyzeIdeaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
+    '/design-system': {
+      id: '/design-system'
+      path: '/design-system'
+      fullPath: '/design-system'
+      preLoaderRoute: typeof DesignSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-project': {
+      id: '/find-project'
+      path: '/find-project'
+      fullPath: '/find-project'
+      preLoaderRoute: typeof FindProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-started': {
+      id: '/get-started'
+      path: '/get-started'
+      fullPath: '/get-started'
+      preLoaderRoute: typeof GetStartedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -104,9 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ExploreRoute: ExploreRoute,
-  ProfileRoute: ProfileRoute,
-  SettingsRoute: SettingsRoute,
+  AnalyzeIdeaRoute: AnalyzeIdeaRoute,
+  DesignSystemRoute: DesignSystemRoute,
+  FeaturesRoute: FeaturesRoute,
+  FindProjectRoute: FindProjectRoute,
+  GetStartedRoute: GetStartedRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  SignInRoute: SignInRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
